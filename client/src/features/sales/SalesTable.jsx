@@ -1,0 +1,4 @@
+import { birr } from '../../utils/currency.js'
+import { t } from '../../i18n.js'
+
+export default function SalesTable({ sales, compact = false }) { return <div className={`table-wrap ${compact ? 'compact-table' : ''}`}><table><thead><tr><th>{t('SALE ID')}</th><th>{t('CUSTOMER')}</th>{!compact && <th>{t('ITEMS')}</th>}<th>{t('PAYMENT')}</th><th>{t('AMOUNT')}</th><th>{t('STATUS')}</th></tr></thead><tbody>{sales.length ? sales.map((s)=><tr key={s.id}><td><b className="sale-id">{s.id}</b><small className="sale-time">{s.time}</small></td><td>{s.customer}</td>{!compact && <td>{s.items} {t('items')}</td>}<td>{t(s.method)}</td><td><b>{birr(s.total)}</b></td><td><span className="status-pill status-green">{t(s.status)}</span></td></tr>) : <tr><td colSpan="6" className="table-empty">{t('No sales recorded yet')}</td></tr>}</tbody></table></div> }

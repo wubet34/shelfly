@@ -1,0 +1,18 @@
+const express=require('express');
+const cors=require('cors');
+const {origins}=require('./config/env');
+const {authenticate,csrf}=require('./middleware/authenticate');
+const errorHandler=require('./middleware/errorHandler');
+const app=express();
+app.disable('x-powered-by');
+app.use(cors({origin(origin,callback){if(!origin||origins.includes(origin))return callback(null,true);const error=new Error('Origin not allowed');error.status=403;return callback(error);},credentials:true,allowedHeaders:['Content-Type','X-CSRF-Token','Idempotency-Key'],methods:['GET','POST','PATCH','DELETE']}));
+app.use(express.json({limit:'32kb'}));
+app.use((req,res,next)=>{res.setHeader('X-Content-Type-Options','nosniff');res.setHeader('Referrer-Policy','same-origin');res.setHeader('Cache-Control','no-store');next();});
+app.get('/api/health',async(_req,res)=>{try{await require('./config/database').query('SELECT 1');res.json({status:'ok'});}catch{res.status(503).json({status:'unavailable'});}});
+app.use('/api',require('./modules/auth/auth.routes'));
+app.use('/api',(req,res,next)=>{if(req.path==='/health'||req.path.startsWith('/auth/'))return next();authenticate(req,res,next);});
+app.use('/api',(req,res,next)=>{if(['GET','HEAD','OPTIONS'].includes(req.method))return next();csrf(req,res,next);});
+for(const feature of ['dashboard','products','customers','sales','expenses','employees','settings'])app.use('/api',require(`./modules/${feature}/${feature}.routes`));
+app.use((req,res)=>res.status(404).json({error:'Route not found'}));
+app.use(errorHandler);
+module.exports=app;

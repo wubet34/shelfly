@@ -1,0 +1,10 @@
+const express = require('express');
+const router = express.Router();
+const { authenticate, csrf } = require('../../middleware/authenticate');
+const { schemas, validated } = require('../../middleware/validation');
+const controller = require('./auth.controller');
+router.post('/auth/login', validated(schemas.login), controller.login);
+router.get('/auth/session', authenticate, controller.session);
+router.post('/auth/logout', authenticate, csrf, controller.logout);
+router.post('/auth/password', authenticate, csrf, validated(schemas.passwordChange), controller.changePassword);
+module.exports = router;

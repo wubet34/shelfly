@@ -1,0 +1,2 @@
+const { production } = require('../config/env');
+module.exports = function errorHandler(error,_req,res,_next){console.error(error);if(res.headersSent)return;const status=Number.isInteger(error.status)?error.status:Number.isInteger(error.statusCode)?error.statusCode:500;res.status(status>=400&&status<600?status:500).json({error:production&&status>=500?'The request could not be completed.':error.message||'The request could not be completed.'});};

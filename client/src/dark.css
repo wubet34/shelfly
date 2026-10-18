@@ -1,0 +1,57 @@
+html[data-theme='dark']{color-scheme:dark;background:#14161b;color:#e7e9f0}
+html[data-theme='dark'] body{background:#14161b;color:#e7e9f0}
+html[data-theme='dark'] .app-shell,html[data-theme='dark'] .main-area{background:#14161b}
+html[data-theme='dark'] .sidebar,html[data-theme='dark'] .topbar,html[data-theme='dark'] .panel,html[data-theme='dark'] .auth-card,html[data-theme='dark'] .workspace-switch,html[data-theme='dark'] .settings-panel,html[data-theme='dark'] .modal,html[data-theme='dark'] .help-dialog{background:#1d212a;border-color:#303541;color:#e7e9f0}
+html[data-theme='dark'] .auth-screen{background:#14161b}
+html[data-theme='dark'] .page-heading h1,html[data-theme='dark'] .panel-head h2,html[data-theme='dark'] .metric-value,html[data-theme='dark'] .chart-legend>b,html[data-theme='dark'] .profile-info b,html[data-theme='dark'] .workspace-copy b,html[data-theme='dark'] .rank-info b,html[data-theme='dark'] .stock-value,html[data-theme='dark'] .sale-total b,html[data-theme='dark'] .auth-card h1,html[data-theme='dark'] .help-dialog h2,html[data-theme='dark'] .help-dialog h3{color:#edf0f8}
+html[data-theme='dark'] .page-heading p,html[data-theme='dark'] .panel-head p,html[data-theme='dark'] .metric-top,html[data-theme='dark'] .breadcrumbs,html[data-theme='dark'] .workspace-copy small,html[data-theme='dark'] .profile-info small,html[data-theme='dark'] .rank-info small,html[data-theme='dark'] .chart-footnote,html[data-theme='dark'] .muted,html[data-theme='dark'] .auth-card>p,html[data-theme='dark'] .help-dialog p{color:#a2a8b7}
+html[data-theme='dark'] .breadcrumbs b,html[data-theme='dark'] .button.secondary,html[data-theme='dark'] .select-compact,html[data-theme='dark'] .table-search,html[data-theme='dark'] .global-search,html[data-theme='dark'] .logout-button{color:#d8dbe5}
+html[data-theme='dark'] .nav-item{color:#b4bac8}
+html[data-theme='dark'] .nav-item:hover,html[data-theme='dark'] .icon-button:hover,html[data-theme='dark'] .profile:hover,html[data-theme='dark'] .help-link:hover,html[data-theme='dark'] .customer-action-menu button:hover{background:#282d38;color:#f0f2f8}
+html[data-theme='dark'] .nav-item.active{background:#292e49;color:#aeb7ff}
+html[data-theme='dark'] .nav-item.active .icon{color:#aeb7ff}
+html[data-theme='dark'] .nav-label,html[data-theme='dark'] .eyebrow,html[data-theme='dark'] .breadcrumbs,html[data-theme='dark'] .table-empty{color:#9ca3b2}
+html[data-theme='dark'] .button.secondary,html[data-theme='dark'] .select-compact,html[data-theme='dark'] .table-search,html[data-theme='dark'] .global-search,html[data-theme='dark'] .logout-button,html[data-theme='dark'] input,html[data-theme='dark'] select,html[data-theme='dark'] textarea{background:#191d25;border-color:#353b48;color:#e7e9f0}
+html[data-theme='dark'] input::placeholder{color:#818898}
+html[data-theme='dark'] .button.secondary:hover,html[data-theme='dark'] .logout-button:hover{background:#292e39}
+html[data-theme='dark'] .button.primary{background:#626fe0;color:#fff}
+html[data-theme='dark'] .button.primary:hover{background:#7480ed}
+html[data-theme='dark'] .top-divider,html[data-theme='dark'] .sidebar-bottom,html[data-theme='dark'] .chart-legend,html[data-theme='dark'] .chart-footnote,html[data-theme='dark'] .rank-row,html[data-theme='dark'] .table-footer,html[data-theme='dark'] .chart-gridline{border-color:#303541}
+html[data-theme='dark'] table th{background:#191d25;color:#aab0bf;border-color:#303541}
+html[data-theme='dark'] table td{color:#d2d6e0;border-color:#303541}
+html[data-theme='dark'] table tbody tr:hover{background:#222732}
+html[data-theme='dark'] .table-search input,html[data-theme='dark'] .global-search input{background:transparent;color:#e7e9f0}
+html[data-theme='dark'] .customer-action-menu{background:#222732;border-color:#3a404d;box-shadow:0 8px 24px #0008}
+html[data-theme='dark'] .customer-action-menu button{color:#e0e3eb}
+html[data-theme='dark'] .customer-action-menu .customer-delete-action{color:#ff9b9b}
+html[data-theme='dark'] .modal-backdrop,html[data-theme='dark'] .help-backdrop{background:#05070bc9}
+html[data-theme='dark'] .sale-modal .modal-head,html[data-theme='dark'] .cart-area{background:#191d25;border-color:#303541}
+html[data-theme='dark'] .sale-product-option,html[data-theme='dark'] .cart-row{background:#1d212a;border-color:#303541;color:#e7e9f0}
+html[data-theme='dark'] .chart-gridline{border-top-color:#363c49}
+html[data-theme='dark'] .metric-blue{background:#292f4b;color:#aab4ff}
+html[data-theme='dark'] .metric-violet{background:#342b48;color:#ceb5ff}
+html[data-theme='dark'] .metric-green{background:#233b30;color:#8bd4a7}
+html[data-theme='dark'] .metric-orange{background:#443324;color:#ffc183}
+html[data-theme='dark'] .status-green{background:#233c31;color:#9bdbb3}
+html[data-theme='dark'] .status-orange{background:#443324;color:#ffc183}
+html[data-theme='dark'] .inline-empty,html[data-theme='dark'] .expense-empty{color:#c4c9d4}
+html[data-theme='dark'] .toast{background:#252a35;color:#f0f2f8;border-color:#3a404d}
+html[data-theme='dark'] .auth-error{background:#3a2529;border-color:#694047;color:#ffb7bd}
+html[data-theme='dark'] .auth-theme-toggle,html[data-theme='dark'] .theme-toggle{background:#191d25;border-color:#353b48;color:#e0e3ed}
+html[data-theme='dark'] .theme-toggle:hover,html[data-theme='dark'] .auth-theme-toggle:hover{background:#292e39}
+html[data-theme='dark'] .help-note{border-color:#353b48;background:#191d25}
+html[data-theme='dark'] .help-actions button{background:#191d25;border-color:#353b48;color:#e0e3ed}
+html[data-theme='dark'] .help-actions button:hover{background:#292e39}
+
+html[data-theme='dark'] .inventory-stats .panel,html[data-theme='dark'] .sales-summary .panel{color:#b8becb}
+html[data-theme='dark'] .inventory-stats .panel b,html[data-theme='dark'] .sales-summary .panel b,html[data-theme='dark'] .table-product b,html[data-theme='dark'] .expense-empty h2,html[data-theme='dark'] .report-card strong,html[data-theme='dark'] .modal-head h2,html[data-theme='dark'] .cart-title,html[data-theme='dark'] .sale-total{color:#edf0f8}
+html[data-theme='dark'] .inventory-stats .panel small,html[data-theme='dark'] .settings-panel p,html[data-theme='dark'] .expense-empty p,html[data-theme='dark'] .report-card .muted,html[data-theme='dark'] .cart-empty,html[data-theme='dark'] .sale-product-option small,html[data-theme='dark'] .sale-time,html[data-theme='dark'] .table-footer,html[data-theme='dark'] .table-footer button,html[data-theme='dark'] .cart-title span,html[data-theme='dark'] .stock-value small,html[data-theme='dark'] .rank-number,html[data-theme='dark'] .sku-cell,html[data-theme='dark'] .stock-threshold,html[data-theme='dark'] .auth-divider,html[data-theme='dark'] .field-help,html[data-theme='dark'] .modal-head p,html[data-theme='dark'] .low-stock-name small{color:#b8becb}
+html[data-theme='dark'] .settings-panel label,html[data-theme='dark'] .form-modal label,html[data-theme='dark'] .auth-card>label{color:#d2d6e0}
+html[data-theme='dark'] .profile-summary{background:#191d25;border-color:#353b48}html[data-theme='dark'] .profile-summary b,html[data-theme='dark'] .profile-section-title{color:#edf0f8}html[data-theme='dark'] .profile-summary small{color:#b8becb}html[data-theme='dark'] .form-error{background:#3a2529;border-color:#694047;color:#ffb7bd}
+html[data-theme='dark'] .language-toggle{background:#191d25;border-color:#353b48;color:#e0e3ed}html[data-theme='dark'] .language-toggle:hover{background:#292e39}html[data-theme='dark'] .checkout-field{color:#d2d6e0}html[data-theme='dark'] .checkout-select{background-color:#191d25;border-color:#454c5b;color:#e7e9f0}
+html[data-theme='dark'] .checkout-select{background-image:linear-gradient(45deg,transparent 50%,#aab1c0 50%),linear-gradient(135deg,#aab1c0 50%,transparent 50%);background-position:calc(100% - 14px) 16px,calc(100% - 10px) 16px;background-size:4px 4px,4px 4px;background-repeat:no-repeat}
+html[data-theme='dark'] .cart-quantity-warning{color:#ffaaa4}html[data-theme='dark'] .cart-qty-control input[aria-invalid=true]{border-color:#9b514b;background:#392629}
+html[data-theme='dark'] .brand{color:#edf0f8}
+html[data-theme='dark'] .brand-mark{background:#626fe0;color:#fff;box-shadow:0 4px 12px #5968e04d}
+html[data-theme='dark'] .brand-dot{color:#aeb7ff}
+html[data-theme='dark'] .brand-name small{color:#aab1c0}

@@ -1,0 +1,7 @@
+import { birr } from '../../utils/currency.js'
+import { Icon } from '../../components/ui/Icon.jsx'
+import SalesTable from './SalesTable.jsx'
+import { downloadCsv } from '../../utils/exportCsv.js'
+import { t } from '../../i18n.js'
+
+export default function SalesPage({ sales, openSale, isOwner = true }) { const exportSales = () => downloadCsv('sales.csv', ['Sale ID', 'Date', 'Time', 'Customer', 'Items', 'Payment method', 'Total (ETB)', 'Status'].map(t), sales.map((sale) => [sale.id, sale.date, sale.time, sale.customer, sale.items, t(sale.method), sale.total, t(sale.status)])); return <><div className="page-heading"><div><div className="eyebrow greeting">{t('TRANSACTIONS')} <span>·</span> {sales.length} {t('RECORDED')}</div><h1>{t('Sales')}</h1><p>{t('View and manage your store’s transactions.')}</p></div><button className="button primary" onClick={openSale}><Icon>＋</Icon>{t('Record a sale')}</button></div>{isOwner&&<div className="sales-summary"><div className="panel"><span>{t('Sales recorded')}</span><b>{sales.length}</b></div><div className="panel"><span>{t('Total revenue')}</span><b>{birr(sales.reduce((n,s)=>n+s.total,0))}</b></div><div className="panel"><span>{t('Payment methods')}</span><b>{new Set(sales.map(s=>s.method)).size}</b></div></div>}<section className="panel full-sales"><div className="panel-head"><div><h2>{t('All transactions')}</h2><p>{t('Sales recorded in your workspace')}</p></div><button className="button secondary" onClick={exportSales}>↓ {t('Export CSV')}</button></div><SalesTable sales={sales} /></section></> }

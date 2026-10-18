@@ -1,0 +1,10 @@
+const crypto = require('node:crypto');
+const pool = require('../config/database');
+const { production, cookieName } = require('../config/env');
+function cookies(req) { return Object.fromEntries((req.headers.cookie||'').split(';').map((part)=>{const i=part.indexOf('=');if(i<0)return['',''];const value=part.slice(i+1).trim();try{return[part.slice(0,i).trim(),decodeURIComponent(value)];}catch{return[part.slice(0,i).trim(),value];}}));}
+function setCookie(res,name,value,options={}) {const bits=[`${name}=${encodeURIComponent(value)}`,'Path=/','SameSite=Lax'];if(options.maxAge != null)bits.push(`Max-Age=${options.maxAge}`);if(options.httpOnly)bits.push('HttpOnly');if(production)bits.push('Secure');res.append('Set-Cookie',bits.join('; '));}
+function clearAuthCookies(res){setCookie(res,cookieName,'',{httpOnly:true,maxAge:0});setCookie(res,'distro_csrf','',{maxAge:0});}
+async function authenticate(req,res,next){try{const sid=cookies(req)[cookieName];if(!sid||!/^[a-f0-9]{64}$/.test(sid))return res.status(401).json({error:'Authentication required'});const result=await pool.query(`SELECT s.id,s.csrf_token,u.id AS user_id,u.business_id,u.name,u.email,u.role,u.permissions,b.name AS business_name,b.currency,b.timezone FROM sessions s JOIN users u ON u.id=s.user_id JOIN businesses b ON b.id=u.business_id WHERE s.id=$1 AND s.expires_at>now() AND u.active=true`,[sid]);if(!result.rowCount){clearAuthCookies(res);return res.status(401).json({error:'Session expired'});}req.user=result.rows[0];req.sid=sid;req.csrf=result.rows[0].csrf_token;next();}catch(error){next(error);}}
+function csrf(req,res,next){const header=req.get('X-CSRF-Token');if(!header||!/^[a-f0-9]{64}$/.test(header)||!crypto.timingSafeEqual(Buffer.from(header),Buffer.from(req.csrf)))return res.status(403).json({error:'Invalid CSRF token'});next();}
+function owner(req,res,next){if(req.user.role!=='OWNER')return res.status(403).json({error:'Owner permission required'});next();}
+module.exports={authenticate,csrf,owner,setCookie,clearAuthCookies};

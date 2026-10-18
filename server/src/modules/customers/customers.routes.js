@@ -1,0 +1,11 @@
+const express = require('express');
+const router = express.Router();
+const { owner } = require('../../middleware/authenticate');
+const { schemas, validated } = require('../../middleware/validation');
+const controller = require('./customer.controller');
+router.get('/customers/lookup', controller.lookup);
+router.get('/customers', owner, controller.list);
+router.post('/customers', owner, validated(schemas.customer), controller.create);
+router.patch('/customers/:id', owner, validated(schemas.customer), controller.update);
+router.delete('/customers/:id', owner, controller.remove);
+module.exports = router;
