@@ -1,0 +1,6 @@
+# Local environment secrets
+server/.env
+
+# Dependencies and generated output
+node_modules/
+client/dist/
